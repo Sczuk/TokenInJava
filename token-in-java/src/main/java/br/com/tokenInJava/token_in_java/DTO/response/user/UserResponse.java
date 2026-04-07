@@ -1,4 +1,4 @@
-package br.com.tokenInJava.token_in_java.DTO.response;
+package br.com.tokenInJava.token_in_java.DTO.response.user;
 
 import lombok.Getter;
 import lombok.Setter;
