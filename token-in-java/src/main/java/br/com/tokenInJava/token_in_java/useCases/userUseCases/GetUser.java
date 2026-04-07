@@ -1,7 +1,7 @@
 package br.com.tokenInJava.token_in_java.useCases.userUseCases;
 
-import br.com.tokenInJava.token_in_java.DTO.response.UserResponse;
-import br.com.tokenInJava.token_in_java.entity.User;
+import br.com.tokenInJava.token_in_java.DTO.response.user.UserResponse;
+import br.com.tokenInJava.token_in_java.entity.user.User;
 import br.com.tokenInJava.token_in_java.exceptions.UserNotFoundException;
 import br.com.tokenInJava.token_in_java.mapper.UserMapper;
 import br.com.tokenInJava.token_in_java.repository.UserRepository;

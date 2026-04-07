@@ -1,8 +1,8 @@
 package br.com.tokenInJava.token_in_java.useCases.userUseCases;
 
-import br.com.tokenInJava.token_in_java.DTO.request.userUpdate.UpdateDescriptionRequest;
-import br.com.tokenInJava.token_in_java.DTO.response.UserStatusResponse;
-import br.com.tokenInJava.token_in_java.entity.User;
+import br.com.tokenInJava.token_in_java.DTO.request.user.userUpdate.UpdateDescriptionRequest;
+import br.com.tokenInJava.token_in_java.DTO.response.user.UserStatusResponse;
+import br.com.tokenInJava.token_in_java.entity.user.User;
 import br.com.tokenInJava.token_in_java.exceptions.UserNotFoundException;
 import br.com.tokenInJava.token_in_java.mapper.UserStatusMapper;
 import br.com.tokenInJava.token_in_java.repository.UserRepository;
