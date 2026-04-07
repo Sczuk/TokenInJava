@@ -1,4 +1,4 @@
-package br.com.tokenInJava.token_in_java.entity;
+package br.com.tokenInJava.token_in_java.entity.user;
 
 import jakarta.persistence.*;
 import lombok.Getter;
@@ -34,8 +34,9 @@ public class User implements UserDetails {
     private String description;
 
     @Column(nullable = false,name = "user_status")
-    private boolean userStatus;
+    private boolean userStatus = true;
 
+    @Enumerated(EnumType.STRING)
     @Column(nullable = false)
     private UserRole role;
 
