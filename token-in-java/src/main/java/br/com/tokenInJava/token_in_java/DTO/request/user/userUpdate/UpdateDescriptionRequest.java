@@ -1,4 +1,4 @@
-package br.com.tokenInJava.token_in_java.DTO.request.userUpdate;
+package br.com.tokenInJava.token_in_java.DTO.request.user.userUpdate;
 
 import jakarta.validation.constraints.NotBlank;
 import lombok.Getter;
