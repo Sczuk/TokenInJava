@@ -1,8 +1,8 @@
-package br.com.tokenInJava.token_in_java.mapper;
+package br.com.tokenInJava.token_in_java.mapper.user;
 
-import br.com.tokenInJava.token_in_java.DTO.request.UserRequest;
-import br.com.tokenInJava.token_in_java.DTO.response.UserResponse;
-import br.com.tokenInJava.token_in_java.entity.User;
+import br.com.tokenInJava.token_in_java.DTO.request.user.UserRequest;
+import br.com.tokenInJava.token_in_java.DTO.response.user.UserResponse;
+import br.com.tokenInJava.token_in_java.entity.user.User;
 import org.mapstruct.Mapper;
 
 @Mapper(componentModel = "spring")
