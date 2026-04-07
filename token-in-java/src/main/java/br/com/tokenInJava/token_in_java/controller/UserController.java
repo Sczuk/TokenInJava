@@ -1,13 +1,12 @@
 package br.com.tokenInJava.token_in_java.controller;
 
-import br.com.tokenInJava.token_in_java.DTO.request.userUpdate.UpdateDescriptionRequest;
-import br.com.tokenInJava.token_in_java.DTO.request.UserRequest;
-import br.com.tokenInJava.token_in_java.DTO.response.UserResponse;
-import br.com.tokenInJava.token_in_java.DTO.response.UserStatusResponse;
+import br.com.tokenInJava.token_in_java.DTO.request.user.userUpdate.UpdateDescriptionRequest;
+import br.com.tokenInJava.token_in_java.DTO.request.user.UserRequest;
+import br.com.tokenInJava.token_in_java.DTO.response.user.UserResponse;
+import br.com.tokenInJava.token_in_java.DTO.response.user.UserStatusResponse;
 import br.com.tokenInJava.token_in_java.useCases.userUseCases.DeleteUser;
 import br.com.tokenInJava.token_in_java.useCases.userUseCases.GetUser;
 import br.com.tokenInJava.token_in_java.useCases.userUseCases.UpdateUser;
-import br.com.tokenInJava.token_in_java.useCases.userUseCases.UserRegister;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -19,9 +18,6 @@ import org.springframework.web.bind.annotation.*;
 public class UserController {
 
     @Autowired
-    private UserRegister userRegister;
-
-    @Autowired
     private GetUser getUser;
 
     @Autowired
@@ -29,12 +25,6 @@ public class UserController {
 
     @Autowired
     private UpdateUser updateUser;
-
-    @PostMapping()
-    public ResponseEntity<UserStatusResponse> registerUser(@RequestBody @Valid UserRequest request){
-        UserStatusResponse response = userRegister.execute(request);
-        return ResponseEntity.status(HttpStatus.CREATED).body(response);
-    }
 
     @GetMapping("/{email}")
     public ResponseEntity<UserResponse> getUser(@PathVariable String email){
