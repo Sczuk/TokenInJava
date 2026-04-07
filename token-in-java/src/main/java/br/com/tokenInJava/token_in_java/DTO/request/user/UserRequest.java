@@ -1,11 +1,9 @@
-package br.com.tokenInJava.token_in_java.DTO.request;
+package br.com.tokenInJava.token_in_java.DTO.request.user;
 
-import jakarta.validation.Valid;
+import br.com.tokenInJava.token_in_java.entity.user.UserRole;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
-import jakarta.validation.constraints.NotNull;
 import lombok.Getter;
-import lombok.NonNull;
 import lombok.Setter;
 
 
@@ -25,4 +23,7 @@ public class UserRequest {
 
     @NotBlank(message = "A descriçao é obrigatoria")
     private String description;
+
+    @NotBlank(message = "Role cant be null")
+    private String role;
 }
