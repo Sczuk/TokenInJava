@@ -14,6 +14,8 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 
+import java.util.List;
+
 @Configuration
 @EnableWebSecurity
 public class SecurityConfig {
@@ -24,13 +26,14 @@ public class SecurityConfig {
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity httpSecurity){
         return httpSecurity
-                .csrf(csrt -> csrt.disable())
-                .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
+                .csrf(csrt -> csrt.disable()) // disabilita a autorizaçao inicial para testar a aplicaçao
+                .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS)) //deixa a autenticaçao stateless... nao salva as informaçoes dentro do spring security.
                 .authorizeHttpRequests(authorize -> authorize
-                        .requestMatchers(HttpMethod.POST, "/auth/login").permitAll()
+                        .requestMatchers(HttpMethod.POST, "/auth/login").permitAll() //separa o acesso dos endpoints, nesse caso todos tem permiçao para acessar essa rota
                         .requestMatchers(HttpMethod.POST, "/auth/register").permitAll()
-                        .requestMatchers(HttpMethod.POST, "/product").hasRole("ADMIN")
-                        .requestMatchers(HttpMethod.GET, "/product").permitAll()
+                        .requestMatchers(HttpMethod.POST, "/product").hasRole("ADMIN") //aqui apenas admin consegue acessar esse endpoint
+                        .requestMatchers(HttpMethod.GET, "/product").hasRole("COMMON_USER")
+                        .requestMatchers(HttpMethod.GET, "/product").hasRole("ADMIN")
                         .anyRequest().authenticated()
                 )
                 .addFilterBefore(securityFilter, UsernamePasswordAuthenticationFilter.class)
